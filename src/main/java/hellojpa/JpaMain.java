@@ -19,12 +19,25 @@ public class JpaMain {
 
         try {
 //            Member findMember = em.find(Member.class, 1L);
-            List<Member> result = em.createQuery("select m from Member as m", Member.class)
-                    .getResultList();
+//            List<Member> result = em.createQuery("select m from Member as m", Member.class)
+                    //페이징 처리
+                    //.setFirstResult(1)
+                    //.setMaxResults(10)
+//                    .getResultList();
+//
+//            for(Member member : result) {
+//                System.out.println("member.name = " + member.getName());
 
-            for(Member member : result) {
-                System.out.println("member.name = " + member.getName());
-            }
+            //비영속
+            Member member = new Member();
+            member.setId(100L);
+            member.setName("HelloJPA");
+
+            //영속
+            System.out.println("=== BEFORE ===");
+            em.persist(member);
+            System.out.println("=== AFTER ===");
+            
             //JPA 의 모든 작업은 Transaction 안에서 실행되어야 함
 
 //            em.persist(member); // 영속성 컨텍스트에 저장
