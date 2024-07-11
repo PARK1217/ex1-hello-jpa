@@ -21,6 +21,10 @@ public class JpaMain {
 //            Member findMember = em.find(Member.class, 1L);
             List<Member> result = em.createQuery("select m from Member as m", Member.class)
                     .getResultList();
+
+            for(Member member : result) {
+                System.out.println("member.name = " + member.getName());
+            }
             //JPA 의 모든 작업은 Transaction 안에서 실행되어야 함
 
 //            em.persist(member); // 영속성 컨텍스트에 저장
