@@ -36,9 +36,11 @@ public class JpaMain {
             //영속
             System.out.println("=== BEFORE ===");
             em.persist(member);
+            //1차 캐시에 저장
             System.out.println("=== AFTER ===");
 
             //조회 sql 안나옴.. select 쿼리가 안나오고 insert 쿼리만 나옴
+            //1차 캐시에 저장된 데이터를 조회
             Member findMember = em.find(Member.class, 101L);
 
             System.out.println("findMember.id = " + findMember.getId());
