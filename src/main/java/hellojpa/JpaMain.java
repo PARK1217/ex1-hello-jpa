@@ -30,14 +30,20 @@ public class JpaMain {
 
             //비영속
             Member member = new Member();
-            member.setId(100L);
+            member.setId(101L);
             member.setName("HelloJPA");
 
             //영속
             System.out.println("=== BEFORE ===");
             em.persist(member);
             System.out.println("=== AFTER ===");
-            
+
+            //조회 sql 안나옴.. select 쿼리가 안나오고 insert 쿼리만 나옴
+            Member findMember = em.find(Member.class, 101L);
+
+            System.out.println("findMember.id = " + findMember.getId());
+            System.out.println("findMember.name = " + findMember.getName());
+
             //JPA 의 모든 작업은 Transaction 안에서 실행되어야 함
 
 //            em.persist(member); // 영속성 컨텍스트에 저장
