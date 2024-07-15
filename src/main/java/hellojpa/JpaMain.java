@@ -41,16 +41,25 @@ public class JpaMain {
 
             //조회 sql 안나옴.. select 쿼리가 안나오고 insert 쿼리만 나옴
             //1차 캐시에 저장된 데이터를 조회
-            Member findMember1 = em.find(Member.class, 101L);
-            Member findMember2 = em.find(Member.class, 101L);
-
-            System.out.println("result = " + (findMember1 == findMember2)); //동일성 보장 = true
+//            Member findMember1 = em.find(Member.class, 101L);
+//            Member findMember2 = em.find(Member.class, 101L);
+//
+//            System.out.println("result = " + (findMember1 == findMember2)); //동일성 보장 = true
             //같은 트랜잭션 안에서는 같은 인스턴스를 반환한다.
 
             //JPA 의 모든 작업은 Transaction 안에서 실행되어야 함
 
 //            em.persist(member); // 영속성 컨텍스트에 저장
+
+            Member member1 = new Member(150L, "A");
+            Member member2 = new Member(160L, "B");
+
+            em.persist(member1);
+            em.persist(member2);
+            System.out.println("==================");
+
             tx.commit();
+            //commit 시점에 쿼리가 나감
 
         } catch (Exception e) {
             tx.rollback();
