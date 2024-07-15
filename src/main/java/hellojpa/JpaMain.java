@@ -29,22 +29,22 @@ public class JpaMain {
 //                System.out.println("member.name = " + member.getName());
 
             //비영속
-            Member member = new Member();
-            member.setId(101L);
-            member.setName("HelloJPA");
-
-            //영속
-            System.out.println("=== BEFORE ===");
-            em.persist(member);
-            //1차 캐시에 저장
-            System.out.println("=== AFTER ===");
+//            Member member = new Member();
+//            member.setId(101L);
+//            member.setName("HelloJPA");
+//
+//            //영속
+//            System.out.println("=== BEFORE ===");
+//            em.persist(member);
+//            //1차 캐시에 저장
+//            System.out.println("=== AFTER ===");
 
             //조회 sql 안나옴.. select 쿼리가 안나오고 insert 쿼리만 나옴
             //1차 캐시에 저장된 데이터를 조회
-            Member findMember = em.find(Member.class, 101L);
+            Member findMember1 = em.find(Member.class, 101L);
+            Member findMember2 = em.find(Member.class, 101L);
 
-            System.out.println("findMember.id = " + findMember.getId());
-            System.out.println("findMember.name = " + findMember.getName());
+            System.out.println("result = " + (findMember1 == findMember2)); //동일성 보장 = true
 
             //JPA 의 모든 작업은 Transaction 안에서 실행되어야 함
 
