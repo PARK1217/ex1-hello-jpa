@@ -56,6 +56,7 @@ public class JpaMain {
 
             em.persist(member1);
             em.persist(member2);
+            //쓰기 지연 SQL 저장소에 쿼리를 저장해놓고 commit 시점에 쿼리를 날림
             System.out.println("==================");
 
             tx.commit();
