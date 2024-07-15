@@ -45,6 +45,7 @@ public class JpaMain {
             Member findMember2 = em.find(Member.class, 101L);
 
             System.out.println("result = " + (findMember1 == findMember2)); //동일성 보장 = true
+            //같은 트랜잭션 안에서는 같은 인스턴스를 반환한다.
 
             //JPA 의 모든 작업은 Transaction 안에서 실행되어야 함
 
