@@ -66,11 +66,16 @@ public class JpaMain {
             //em.setFlushMode(FlushModeType.COMMIT); // 플러쉬 모드를 변경할 수 있음 (기본값은 AUTO) -> COMMIT으로 변경하면 커밋할 때만 플러쉬가 됨
             //가급적 AUTO로 사용하는 것을 권장
 
-            Member member = new Member (200L, "member200");
-            em.persist(member);
+//            Member member = new Member (200L, "member200");
+//            em.persist(member);
+//
+//            em.flush(); //쿼리를 날리는 시점 (영속성 컨텍스트의 내용을 데이터베이스에 반영)
+//            //강제로 flush를 호출하면 쿼리를 날림
 
-            em.flush(); //쿼리를 날리는 시점 (영속성 컨텍스트의 내용을 데이터베이스에 반영)
-            //강제로 flush를 호출하면 쿼리를 날림
+            Member member = em.find(Member.class, 150L);
+            member.setName("AAAAA");
+
+            em.detach(member); //영속성 컨텍스트에서 분리 (JPA가 관리하지 않음) -> 준영속 상태 update 쿼리가 나가지 않음
             System.out.println("==================");
 
             tx.commit();
