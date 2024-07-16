@@ -58,10 +58,16 @@ public class JpaMain {
 //            em.persist(member2);
 //            //쓰기 지연 SQL 저장소에 쿼리를 저장해놓고 commit 시점에 쿼리를 날림
 
-            //찾아온 다음에
-            Member member = em.find(Member.class, 150L);
-            //변경
-            member.setName("ZZZZZ");
+//            //찾아온 다음에
+//            Member member = em.find(Member.class, 150L);
+//            //변경
+//            member.setName("ZZZZZ");
+
+            Member member = new Member (200L, "member200");
+            em.persist(member);
+
+            em.flush(); //쿼리를 날리는 시점 (영속성 컨텍스트의 내용을 데이터베이스에 반영)
+            //강제로 flush를 호출하면 쿼리를 날림
             System.out.println("==================");
 
             tx.commit();
