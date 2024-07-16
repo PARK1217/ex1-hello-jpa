@@ -75,7 +75,16 @@ public class JpaMain {
             Member member = em.find(Member.class, 150L);
             member.setName("AAAAA");
 
-            em.detach(member); //영속성 컨텍스트에서 분리 (JPA가 관리하지 않음) -> 준영속 상태 update 쿼리가 나가지 않음
+//            em.detach(member); //영속성 컨텍스트에서 분리 (JPA가 관리하지 않음) -> 준영속 상태 update 쿼리가 나가지 않음
+//            //특정 엔티티만 준영속 상태로 만들 수 있음
+
+            em.clear(); //영속성 컨텍스트를 완전히 초기화
+
+            //em.close(); //영속성 컨텍스트를 종료
+
+            Member member2 = em.find(Member.class, 150L);
+            //위에서 영속성 컨텍스트를 초기화 했기 때문에 select 쿼리가 나감
+
             System.out.println("==================");
 
             tx.commit();
