@@ -51,12 +51,17 @@ public class JpaMain {
 
 //            em.persist(member); // 영속성 컨텍스트에 저장
 
-            Member member1 = new Member(150L, "A");
-            Member member2 = new Member(160L, "B");
+//            Member member1 = new Member(150L, "A");
+//            Member member2 = new Member(160L, "B");
+//
+//            em.persist(member1);
+//            em.persist(member2);
+//            //쓰기 지연 SQL 저장소에 쿼리를 저장해놓고 commit 시점에 쿼리를 날림
 
-            em.persist(member1);
-            em.persist(member2);
-            //쓰기 지연 SQL 저장소에 쿼리를 저장해놓고 commit 시점에 쿼리를 날림
+            //찾아온 다음에
+            Member member = em.find(Member.class, 150L);
+            //변경
+            member.setName("ZZZZZ");
             System.out.println("==================");
 
             tx.commit();
