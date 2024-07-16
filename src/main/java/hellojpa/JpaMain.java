@@ -63,6 +63,9 @@ public class JpaMain {
 //            //변경
 //            member.setName("ZZZZZ");
 
+            //em.setFlushMode(FlushModeType.COMMIT); // 플러쉬 모드를 변경할 수 있음 (기본값은 AUTO) -> COMMIT으로 변경하면 커밋할 때만 플러쉬가 됨
+            //가급적 AUTO로 사용하는 것을 권장
+
             Member member = new Member (200L, "member200");
             em.persist(member);
 
