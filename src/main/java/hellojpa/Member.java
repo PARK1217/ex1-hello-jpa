@@ -35,6 +35,8 @@ public class Member {
     @Lob    //큰 데이터를 저장할 때 사용   //CLOB -> String, BLOB -> byte[]
     private String description;
     @Transient  //DB에 매핑 안함
+    //필드 매핑X, 데이터베이스에 저장X, 조회X
+    //주로 메모리상에서만 임시로 어떤 값을 보관하고 싶을 때 사용
     private int temp;
 
     private LocalDate testLocalDate;    //알아서 LocalDate -> Date로 변환하여 저장
