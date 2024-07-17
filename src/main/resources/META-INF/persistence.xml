@@ -10,12 +10,19 @@
             <property name="jakarta.persistence.jdbc.password" value=""/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/test"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+            <!-- H2, MySQL, Oracle, PostgreSQL, SQL Server 등 다양한 데이터베이스를 지원한다. -->
 
             <!-- 옵션 -->
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
             <property name="hibernate.use_sql_comments"  value="true"/>
             <property name="hibernate.jdbc.batch_size" value="10"/> <!-- JDBC Batch Size 10개씩 묶어서 한번에 저장하는 옵션 -->
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <!-- create(기존 테이블 삭제 후 다시생성),
+            create-drop(create와 같으나 종료시점에 테이블을 삭제),
+            update(변경분만 반영),
+            validate(엔티티와 테이블이 정상 매핑되었는지만 확인),
+            none(기능을 사용하지 않음) -->
 <!--            <property name="hibernate.hbm2ddl.auto" value="create" />-->
         </properties>
     </persistence-unit>

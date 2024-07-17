@@ -2,6 +2,7 @@ package hellojpa;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
 public class Member {
@@ -9,6 +10,7 @@ public class Member {
     @Id
     private Long id;
     private String name;
+    private int age;
 
     // 기본 생성자가 있어야 한다.
     public Member() {
