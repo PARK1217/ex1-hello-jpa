@@ -87,6 +87,14 @@ public class JpaMain {
 
 //            System.out.println("==================");
 
+            Member member = new Member();
+            member.setId(2L);
+            member.setUsername("B");
+            member.setAge(20);
+            member.setRoleType(RoleType.ADMIN); //ENUM 타입 사용
+
+            em.persist(member);
+
             tx.commit();
             //commit 시점에 쿼리가 나감
 
