@@ -2,6 +2,8 @@ package hellojpa;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -28,10 +30,15 @@ public class Member {
     private Date createdDate;
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastModifiedDate;
+    //과거버전을 써야할 경우 @Temporal 어노테이션을 사용하여 날짜 타입을 지정해줌
+
     @Lob    //큰 데이터를 저장할 때 사용   //CLOB -> String, BLOB -> byte[]
     private String description;
     @Transient  //DB에 매핑 안함
     private int temp;
+
+    private LocalDate testLocalDate;    //알아서 LocalDate -> Date로 변환하여 저장
+    private LocalDateTime testLocalDateTime;    //알아서 LocalDateTime -> timestamp로 변환하여 저장
 
     public Member() {
     }
