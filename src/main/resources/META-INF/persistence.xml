@@ -23,6 +23,9 @@
             update(변경분만 반영),
             validate(엔티티와 테이블이 정상 매핑되었는지만 확인),
             none(기능을 사용하지 않음) -->
+            <!-- 개발 초기 단계에는 create 또는 update를 사용하고,
+            테스트 서버는 update 또는 validate를 사용하고,
+            운영 단계에서는 validate 또는 none을 사용하는 것을 권장한다. -->
 <!--            <property name="hibernate.hbm2ddl.auto" value="create" />-->
         </properties>
     </persistence-unit>
