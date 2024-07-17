@@ -22,7 +22,7 @@ public class Member {
 
     private Integer age;
 
-    @Enumerated    //EnumType.ORDINAL -> 숫자로 저장(default), EnumType.STRING -> 문자열로 저장(이름을 그대로 저장)
+    @Enumerated(EnumType.STRING)    //EnumType.ORDINAL -> 숫자로 저장(default), EnumType.STRING -> 문자열로 저장(이름을 그대로 저장)
     private RoleType roleType;
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdDate;
