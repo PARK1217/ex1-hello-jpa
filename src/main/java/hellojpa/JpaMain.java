@@ -88,10 +88,12 @@ public class JpaMain {
 //            System.out.println("==================");
 
             Member member = new Member();
-            member.setId(3L);
+//            member.setId(3L);
+//            member.setUsername("C");
+//            member.setAge(20);
+//            member.setRoleType(RoleType.GUEST); //ENUM 타입 사용
+            member.setId("ID_A");
             member.setUsername("C");
-            member.setAge(20);
-            member.setRoleType(RoleType.GUEST); //ENUM 타입 사용
 
             em.persist(member);
 
