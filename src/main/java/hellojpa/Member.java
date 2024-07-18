@@ -16,7 +16,9 @@ import java.util.Date;
 public class Member {
 
     @Id
-    private String id;
+//    @GeneratedValue(strategy = GenerationType.AUTO)    //DB 방언에 맞춰 자동 생성 전략
+    @GeneratedValue(strategy = GenerationType.IDENTITY)    //기본키 생성을 DB에 위임
+    private Long id;
 
     @Column(name = "name", nullable = false)    //nullable = false -> not null제약조건
     // insertable = false, updatable = false -> 읽기 전용
@@ -45,11 +47,11 @@ public class Member {
     public Member() {
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

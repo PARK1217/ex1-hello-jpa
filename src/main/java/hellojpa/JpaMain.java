@@ -92,7 +92,7 @@ public class JpaMain {
 //            member.setUsername("C");
 //            member.setAge(20);
 //            member.setRoleType(RoleType.GUEST); //ENUM 타입 사용
-            member.setId("ID_A");
+//            member.setId("ID_A");
             member.setUsername("C");
 
             em.persist(member);
