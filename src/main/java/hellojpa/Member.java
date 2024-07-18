@@ -13,11 +13,16 @@ import java.util.Date;
 //)})
 //테이블에 유니크 제약조건을 걸어줌
 //컬럼별로 유니크 제약조건을 걸게되면 랜덤으로 이름을 지정하기때문에 @Table 어노테이션을 사용하여 이름을 지정해줌
+@SequenceGenerator(
+        name = "MEMBER_SEQ_GENERATOR",
+        sequenceName = "MEMBER_SEQ",    //매핑할 데이터베이스 시퀀스 이름
+        initialValue = 1, allocationSize = 1
+)
 public class Member {
 
     @Id
 //    @GeneratedValue(strategy = GenerationType.AUTO)    //DB 방언에 맞춰 자동 생성 전략
-    @GeneratedValue(strategy = GenerationType.IDENTITY)    //기본키 생성을 DB에 위임
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MEMBER_SEQ_GENERATOR")    //기본키 생성을 DB에 위임
     private Long id;
 
     @Column(name = "name", nullable = false)    //nullable = false -> not null제약조건
