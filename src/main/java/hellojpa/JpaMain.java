@@ -95,7 +95,10 @@ public class JpaMain {
 //            member.setId("ID_A");
             member.setUsername("C");
 
+            System.out.println("==================");
             em.persist(member);
+            System.out.println("member.id = " + member.getId());
+            System.out.println("==============================");
 
             tx.commit();
             //commit 시점에 쿼리가 나감

@@ -18,17 +18,18 @@ import java.util.Date;
 //        sequenceName = "MEMBER_SEQ",    //매핑할 데이터베이스 시퀀스 이름
 //        initialValue = 1, allocationSize = 1
 //)
-@TableGenerator(
-        name = "MEMBER_SEQ_GENERATOR",
-        table = "MY_SEQUENCES",
-        pkColumnValue = "MEMBER_SEQ", allocationSize = 1
-)
+//@TableGenerator(
+//        name = "MEMBER_SEQ_GENERATOR",
+//        table = "MY_SEQUENCES",
+//        pkColumnValue = "MEMBER_SEQ", allocationSize = 1
+//)
 public class Member {
 
     @Id
 //    @GeneratedValue(strategy = GenerationType.AUTO)    //DB 방언에 맞춰 자동 생성 전략
 //    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MEMBER_SEQ_GENERATOR")    //기본키 생성을 DB에 위임
-    @GeneratedValue(strategy = GenerationType.TABLE, generator = "MEMBER_SEQ_GENERATOR")    //기본키 생성을 DB에 위임
+//    @GeneratedValue(strategy = GenerationType.TABLE, generator = "MEMBER_SEQ_GENERATOR")    //기본키 생성을 DB에 위임
+    @GeneratedValue(strategy = GenerationType.IDENTITY)    //기본키 생성을 DB에 위임
     private Long id;
 
     @Column(name = "name", nullable = false)    //nullable = false -> not null제약조건
