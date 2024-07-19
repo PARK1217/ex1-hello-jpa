@@ -87,21 +87,20 @@ public class JpaMain {
 
 //            System.out.println("==================");
 
-            Member member = new Member();
-//            member.setId(3L);
-//            member.setUsername("C");
-//            member.setAge(20);
-//            member.setRoleType(RoleType.GUEST); //ENUM 타입 사용
-//            member.setId("ID_A");
-            member.setUsername("C");
 
-            System.out.println("==================");
+            //commit 시점에 쿼리가 나감
+
+            Team team = new Team();
+            team.setName("TeamA");
+            em.persist(team);
+
+            Member member = new Member();
+            member.setUsername("member1");
+            member.setTeamId(team.getId());
+
             em.persist(member);
-            System.out.println("member.id = " + member.getId());
-            System.out.println("==============================");
 
             tx.commit();
-            //commit 시점에 쿼리가 나감
 
         } catch (Exception e) {
             tx.rollback();

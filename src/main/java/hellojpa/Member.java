@@ -25,16 +25,21 @@ import java.util.Date;
 //)
 public class Member {
 
-    @Id
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    @GeneratedValue(strategy = GenerationType.AUTO)    //DB 방언에 맞춰 자동 생성 전략
 //    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MEMBER_SEQ_GENERATOR")    //기본키 생성을 DB에 위임
 //    @GeneratedValue(strategy = GenerationType.TABLE, generator = "MEMBER_SEQ_GENERATOR")    //기본키 생성을 DB에 위임
-    @GeneratedValue(strategy = GenerationType.IDENTITY)    //기본키 생성을 DB에 위임
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)    //기본키 생성을 DB에 위임
+    @Column(name = "MEMBER_ID")
     private Long id;
 
-    @Column(name = "name", nullable = false)    //nullable = false -> not null제약조건
+//    @Column(name = "name", nullable = false)    //nullable = false -> not null제약조건
     // insertable = false, updatable = false -> 읽기 전용
+    @Column(name = "USERNAME")
     private String username;
+
+    @Column(name = "TEAM_ID")
+    private Long teamId;
 
 //    private Integer age;
 //
@@ -56,9 +61,6 @@ public class Member {
 //    private LocalDate testLocalDate;    //알아서 LocalDate -> Date로 변환하여 저장
 //    private LocalDateTime testLocalDateTime;    //알아서 LocalDateTime -> timestamp로 변환하여 저장
 
-    public Member() {
-    }
-
     public Long getId() {
         return id;
     }
@@ -74,6 +76,15 @@ public class Member {
     public void setUsername(String username) {
         this.username = username;
     }
+
+    public Long getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(Long teamId) {
+        this.teamId = teamId;
+    }
+
 
     //    public Long getId() {
 //        return id;
