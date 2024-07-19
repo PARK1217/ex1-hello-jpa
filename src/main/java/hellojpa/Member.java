@@ -38,8 +38,13 @@ public class Member {
     @Column(name = "USERNAME")
     private String username;
 
-    @Column(name = "TEAM_ID")
-    private Long teamId;
+//    @Column(name = "TEAM_ID")
+//    private Long teamId;
+
+    @ManyToOne  //Member 입장에서는 N:1 관계
+    @JoinColumn(name = "TEAM_ID")   //외래키를 매핑할 때 사용
+    private Team team;
+
 
 //    private Integer age;
 //
@@ -77,13 +82,13 @@ public class Member {
         this.username = username;
     }
 
-    public Long getTeamId() {
-        return teamId;
-    }
-
-    public void setTeamId(Long teamId) {
-        this.teamId = teamId;
-    }
+//    public Long getTeamId() {
+//        return teamId;
+//    }
+//
+//    public void setTeamId(Long teamId) {
+//        this.teamId = teamId;
+//    }
 
 
     //    public Long getId() {
