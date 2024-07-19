@@ -82,6 +82,14 @@ public class Member {
         this.username = username;
     }
 
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
+    }
+
 //    public Long getTeamId() {
 //        return teamId;
 //    }
